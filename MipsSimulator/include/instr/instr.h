@@ -1,0 +1,18 @@
+#pragma once
+
+#include "addi.h"
+#include "addiu.h"
+#include "andi.h"
+#include "beq.h"
+#include "bne.h"
+#include "inv.h"
+#include "j.h"
+#include "jal.h"
+#include "lui.h"
+#include "lw.h"
+#include "op0.h"
+#include "ori.h"
+#include "slti.h"
+#include "sltiu.h"
+#include "sw.h"
+#include "xori.h"

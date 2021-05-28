@@ -1,0 +1,9 @@
+#include "../../include/instr/jal.h"
+#include "../../include/types.h"
+#include "../../include/utils.h"
+
+make_instr_func(jal) {
+	uint32_t imm = get_j_imm(instr);
+	reg_write(31, pc + 4, 4);
+	pc = imm - 4;
+}
