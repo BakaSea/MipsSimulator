@@ -2,6 +2,7 @@
 #include "../../include/types.h"
 #include "../../include/utils.h"
 #include "../../include/alu.h"
+#include "../../include/instr/syscall.h"
 #include <assert.h>
 
 make_instr_func(op0) {
@@ -61,6 +62,9 @@ make_instr_func(op0) {
 		break;
 	case 0x8:
 		pc = rs_val - 4;
+		break;
+	case 0xc:
+		syscall(instr);
 		break;
 	default:
 		assert(0);

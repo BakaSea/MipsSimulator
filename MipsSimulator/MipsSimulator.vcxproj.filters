@@ -90,6 +90,9 @@
     <ClCompile Include="src\kvm.c">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="src\instr\syscall.c">
+      <Filter>源文件\instr</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\alu.h">
@@ -163,6 +166,9 @@
     </ClInclude>
     <ClInclude Include="include\kvm.h">
       <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="include\instr\syscall.h">
+      <Filter>头文件\instr</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

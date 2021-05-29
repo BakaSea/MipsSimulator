@@ -35,5 +35,6 @@ void run() {
 	while (instr) {
 		decode(instr);
 		pc += 4;
+		instr = mmu_read(pc, 4);
 	}
 }

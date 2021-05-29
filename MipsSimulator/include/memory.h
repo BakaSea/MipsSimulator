@@ -1,7 +1,7 @@
 #pragma once
 #include "types.h"
 
-#define MAX_MEMORY_SIZE 512*1024*1024
+#define MAX_MEMORY_SIZE 64*1024
 uint8_t mmu[MAX_MEMORY_SIZE];
 
 void init_memory();

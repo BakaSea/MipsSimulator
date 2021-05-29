@@ -17,5 +17,5 @@ instr_func opcode_entry[64] = {
 
 void decode(uint32_t instr) {
 	uint32_t opcode = get_opcode(instr);
-	opcode_entry[opcode];
+	opcode_entry[opcode](instr);
 }

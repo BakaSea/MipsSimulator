@@ -5,5 +5,5 @@
 make_instr_func(jal) {
 	uint32_t imm = get_j_imm(instr);
 	reg_write(31, pc + 4, 4);
-	pc = imm - 4;
+	pc = (imm << 2) - 4;
 }

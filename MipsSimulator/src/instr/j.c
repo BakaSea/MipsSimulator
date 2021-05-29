@@ -4,5 +4,5 @@
 
 make_instr_func(j) {
 	uint32_t imm = get_j_imm(instr);
-	pc = imm - 4;
+	pc = (imm << 2) - 4;
 }

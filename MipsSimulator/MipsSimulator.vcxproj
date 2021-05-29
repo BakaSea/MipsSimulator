@@ -142,6 +142,7 @@
     <ClCompile Include="src\instr\slti.c" />
     <ClCompile Include="src\instr\sltiu.c" />
     <ClCompile Include="src\instr\sw.c" />
+    <ClCompile Include="src\instr\syscall.c" />
     <ClCompile Include="src\instr\xori.c" />
     <ClCompile Include="src\memory.c" />
     <ClCompile Include="src\kvm.c" />
@@ -167,6 +168,7 @@
     <ClInclude Include="include\instr\slti.h" />
     <ClInclude Include="include\instr\sltiu.h" />
     <ClInclude Include="include\instr\sw.h" />
+    <ClInclude Include="include\instr\syscall.h" />
     <ClInclude Include="include\instr\xori.h" />
     <ClInclude Include="include\memory.h" />
     <ClInclude Include="include\kvm.h" />
