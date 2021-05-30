@@ -12,6 +12,18 @@ make_instr_func(op0) {
 	uint32_t shamt = get_shamt(instr);
 	uint32_t funct = get_funct(instr);
 	switch (funct) {
+	case 0x18:
+		lo = alu_mul(rs_val, rt_val);
+		break;
+	case 0x19:
+		lo = alu_mulu(rs_val, rt_val);
+		break;
+	case 0x1a:
+		lo = alu_div(rs_val, rt_val);
+		break;
+	case 0x1b:
+		lo = alu_divu(rs_val, rt_val);
+		break;
 	case 0x20:
 		reg_write(rd, alu_add(rs_val, rt_val), 4);
 		break;
@@ -65,6 +77,12 @@ make_instr_func(op0) {
 		break;
 	case 0xc:
 		syscall(instr);
+		break;
+	case 0x10:
+		reg_write(rd, hi, 4);
+		break;
+	case 0x12:
+		reg_write(rd, lo, 4);
 		break;
 	default:
 		assert(0);

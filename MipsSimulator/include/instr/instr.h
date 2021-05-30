@@ -10,6 +10,7 @@
 #include "jal.h"
 #include "lui.h"
 #include "lw.h"
+#include "mul.h"
 #include "op0.h"
 #include "ori.h"
 #include "slti.h"

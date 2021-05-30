@@ -137,6 +137,7 @@
     <ClCompile Include="src\instr\jal.c" />
     <ClCompile Include="src\instr\lui.c" />
     <ClCompile Include="src\instr\lw.c" />
+    <ClCompile Include="src\instr\mul.c" />
     <ClCompile Include="src\instr\op0.c" />
     <ClCompile Include="src\instr\ori.c" />
     <ClCompile Include="src\instr\slti.c" />
@@ -163,6 +164,7 @@
     <ClInclude Include="include\instr\jal.h" />
     <ClInclude Include="include\instr\lui.h" />
     <ClInclude Include="include\instr\lw.h" />
+    <ClInclude Include="include\instr\mul.h" />
     <ClInclude Include="include\instr\op0.h" />
     <ClInclude Include="include\instr\ori.h" />
     <ClInclude Include="include\instr\slti.h" />

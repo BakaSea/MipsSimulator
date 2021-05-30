@@ -4,19 +4,26 @@ add $t0, $v0, $zero #n
 li $t2, 0x2000
 li $t3, 1
 sw $t3, ($t2) #a[0]
-addi $t2, $t2, 4
 li $t4, 1
-sw $t4, ($t2) #a[1]
-addi $t2, $t2, 4
+sw $t4, 4($t2) #a[1]
 li $t1, 2 #i
 loop:
-lw $t3, -8($t2) #a[i-2]
-lw $t4, -4($t2) #a[i-1]
+sub $t5, $t1, 2
+mul $t5, $t5, 4
+add $t5, $t2, $t5
+lw $t3, ($t5) #a[i-2]
+sub $t5, $t1, 1
+mul $t5, $t5, 4
+add $t5, $t2, $t5
+lw $t4, ($t5) #a[i-1]
 add $t4, $t3, $t4 #a[i]=a[i-1]+a[i-2]
-sw $t4, ($t2)
-addi $t2, $t2, 4
+mul $t5, $t1, 4
+add $t5, $t2, $t5
+sw $t4, ($t5)
 addi $t1, $t1, 1
 ble $t1, $t0, loop
 li $v0, 1
-lw $a0, -4($t2)
+mul $t5, $t0, 4
+add $t5, $t2, $t5
+lw $a0, ($t5)
 syscall

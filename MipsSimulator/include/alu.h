@@ -17,3 +17,7 @@ int32_t alu_sra(int32_t rt, uint32_t shamt);
 uint32_t alu_sllv(uint32_t rs, uint32_t rt);
 uint32_t alu_srlv(uint32_t rs, uint32_t rt);
 int32_t alu_srav(uint32_t rs, int32_t rt);
+int32_t alu_mul(int32_t rs, int32_t rt);
+uint32_t alu_mulu(uint32_t rs, uint32_t rt);
+int32_t alu_div(int32_t rs, int32_t rt);
+uint32_t alu_divu(uint32_t rs, uint32_t rt);

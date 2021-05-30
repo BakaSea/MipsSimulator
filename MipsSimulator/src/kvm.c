@@ -26,7 +26,7 @@ void loadMain(char* path) {
 		pc = 0;
 		run();
 	} else {
-		printf("文件不存在！\n");
+		printf("File do not exists!\n");
 	}
 }
 

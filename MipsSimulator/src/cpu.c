@@ -8,6 +8,13 @@ void init_reg() {
 	for (i = 0; i < MAX_REG_SIZE; ++i) {
 		reg[i] = 0;
 	}
+	pc = 0;
+	hi = 0;
+	lo = 0;
+	//gp
+	reg[29] = 0x1800;
+	//sp
+	reg[29] = 0x3FFC;
 }
 
 void reg_write(uint32_t index, uint32_t data, size_t len) {
