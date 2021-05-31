@@ -7,8 +7,8 @@
 #include "../include/cpu.h"
 #include "../include/decode.h"
 
-void loadMain(char* path) {
-	FILE* fp = fopen(path, "r");
+void loadMain(int argc, char* text_path, char* data_path) {
+	FILE* fp = fopen(text_path, "rb");
 	if (fp != NULL) {
 		init_memory();
 		init_reg();
@@ -23,10 +23,32 @@ void loadMain(char* path) {
 			addr += size;
 		} while (size == MAX_BUFFER_SIZE);
 		fclose(fp);
-		pc = 0;
+		if (argc == 2) {
+			fp = fopen(data_path, "rb");
+			if (fp != NULL) {
+				fseek(fp, 0, SEEK_END);
+				if (ftell(fp) > 0x1000) {
+					fclose(fp);
+					printf("Data file is too large!\n");
+					return;
+				}
+				fseek(fp, 0, SEEK_SET);
+				addr = 0x2000;
+				do {
+					memset(buffer, 0, MAX_BUFFER_SIZE);
+					size = fread(buffer, sizeof(uint8_t), MAX_BUFFER_SIZE, fp);
+					memcpy(mmu + addr, buffer, size);
+					addr += size;
+				} while (size == MAX_BUFFER_SIZE);
+				fclose(fp);
+			} else {
+				printf("%s does not exist!\n", data_path);
+				return;
+			}
+		}
 		run();
 	} else {
-		printf("File do not exists!\n");
+		printf("%s does not exist!\n", text_path);
 	}
 }
 
