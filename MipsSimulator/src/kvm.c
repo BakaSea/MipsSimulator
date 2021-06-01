@@ -7,15 +7,18 @@
 #include "../include/cpu.h"
 #include "../include/decode.h"
 
-void loadMain(int argc, char* text_path, char* data_path) {
+extern uint8_t* mmu;
+extern uint32_t pc;
+
+void loadMain(uint32_t text_addr, char* text_path, uint32_t data_addr, char* data_path, uint32_t mmu_size, uint32_t pc_start, uint32_t gp_start, uint32_t sp_start) {
 	FILE* fp = fopen(text_path, "rb");
 	if (fp != NULL) {
-		init_memory();
-		init_reg();
+		init_memory(mmu_size);
+		init_reg(pc_start, sp_start, gp_start);
 		uint8_t buffer[MAX_BUFFER_SIZE];
 		size_t size = 0;
 		int i = 0;
-		uint32_t addr = 0;
+		uint32_t addr = text_addr;
 		do {
 			memset(buffer, 0, MAX_BUFFER_SIZE);
 			size = fread(buffer, sizeof(uint8_t), MAX_BUFFER_SIZE, fp);
@@ -23,7 +26,7 @@ void loadMain(int argc, char* text_path, char* data_path) {
 			addr += size;
 		} while (size == MAX_BUFFER_SIZE);
 		fclose(fp);
-		if (argc == 2) {
+		if (data_path != NULL) {
 			fp = fopen(data_path, "rb");
 			if (fp != NULL) {
 				fseek(fp, 0, SEEK_END);
@@ -33,7 +36,7 @@ void loadMain(int argc, char* text_path, char* data_path) {
 					return;
 				}
 				fseek(fp, 0, SEEK_SET);
-				addr = 0x2000;
+				addr = data_addr;
 				do {
 					memset(buffer, 0, MAX_BUFFER_SIZE);
 					size = fread(buffer, sizeof(uint8_t), MAX_BUFFER_SIZE, fp);
@@ -47,6 +50,7 @@ void loadMain(int argc, char* text_path, char* data_path) {
 			}
 		}
 		run();
+		release_memory();
 	} else {
 		printf("%s does not exist!\n", text_path);
 	}

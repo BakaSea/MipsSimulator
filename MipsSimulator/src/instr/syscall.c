@@ -7,6 +7,8 @@
 #include <assert.h>
 #include <stdlib.h>
 
+extern uint8_t* mmu;
+
 make_instr_func(syscall) {
 	uint32_t v0 = reg_read(2, 4);
 	switch (v0) {

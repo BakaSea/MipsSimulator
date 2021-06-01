@@ -96,6 +96,15 @@
     <ClCompile Include="src\instr\mul.c">
       <Filter>源文件\instr</Filter>
     </ClCompile>
+    <ClCompile Include="src\instr\bgtz.c">
+      <Filter>源文件\instr</Filter>
+    </ClCompile>
+    <ClCompile Include="src\instr\blez.c">
+      <Filter>源文件\instr</Filter>
+    </ClCompile>
+    <ClCompile Include="src\instr\bltz.c">
+      <Filter>源文件\instr</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\alu.h">
@@ -174,6 +183,15 @@
       <Filter>头文件\instr</Filter>
     </ClInclude>
     <ClInclude Include="include\instr\mul.h">
+      <Filter>头文件\instr</Filter>
+    </ClInclude>
+    <ClInclude Include="include\instr\bgtz.h">
+      <Filter>头文件\instr</Filter>
+    </ClInclude>
+    <ClInclude Include="include\instr\blez.h">
+      <Filter>头文件\instr</Filter>
+    </ClInclude>
+    <ClInclude Include="include\instr\bltz.h">
       <Filter>头文件\instr</Filter>
     </ClInclude>
   </ItemGroup>

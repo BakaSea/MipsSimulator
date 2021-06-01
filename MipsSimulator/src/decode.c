@@ -5,7 +5,7 @@
 typedef void (*instr_func)(uint32_t instr);
 
 instr_func opcode_entry[64] = {
-	op0, inv, j, jal, beq, bne, inv, inv,
+	op0, bltz, j, jal, beq, bne, blez, bgtz,
 	addi, addiu, slti, sltiu, andi, ori, xori, lui,
 	inv, inv, inv, inv, inv, inv, inv, inv,
 	inv, inv, inv, inv, mul, inv, inv, inv,

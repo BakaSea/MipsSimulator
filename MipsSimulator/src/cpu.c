@@ -3,18 +3,23 @@
 #include <assert.h>
 #include "../include/types.h"
 
-void init_reg() {
+uint32_t reg[MAX_REG_SIZE];
+uint32_t pc;
+uint32_t hi;
+uint32_t lo;
+
+void init_reg(uint32_t pc_start, uint32_t gp_start, uint32_t sp_start) {
 	int i = 0;
 	for (i = 0; i < MAX_REG_SIZE; ++i) {
 		reg[i] = 0;
 	}
-	pc = 0;
+	pc = pc_start;
 	hi = 0;
 	lo = 0;
 	//gp
-	reg[29] = 0x1800;
+	reg[28] = gp_start;
 	//sp
-	reg[29] = 0x3FFC;
+	reg[29] = sp_start;
 }
 
 void reg_write(uint32_t index, uint32_t data, size_t len) {

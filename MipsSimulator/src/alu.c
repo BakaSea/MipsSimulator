@@ -2,6 +2,8 @@
 #include "../include/types.h"
 #include "../include/cpu.h"
 
+extern uint32_t hi;
+
 int32_t alu_add(int32_t rs, int32_t rt) {
 	int32_t rd = rs + rt;
 	return rd;

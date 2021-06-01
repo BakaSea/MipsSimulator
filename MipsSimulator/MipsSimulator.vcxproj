@@ -131,6 +131,9 @@
     <ClCompile Include="src\instr\addiu.c" />
     <ClCompile Include="src\instr\andi.c" />
     <ClCompile Include="src\instr\beq.c" />
+    <ClCompile Include="src\instr\bgtz.c" />
+    <ClCompile Include="src\instr\blez.c" />
+    <ClCompile Include="src\instr\bltz.c" />
     <ClCompile Include="src\instr\bne.c" />
     <ClCompile Include="src\instr\inv.c" />
     <ClCompile Include="src\instr\j.c" />
@@ -157,6 +160,9 @@
     <ClInclude Include="include\instr\addiu.h" />
     <ClInclude Include="include\instr\andi.h" />
     <ClInclude Include="include\instr\beq.h" />
+    <ClInclude Include="include\instr\bgtz.h" />
+    <ClInclude Include="include\instr\blez.h" />
+    <ClInclude Include="include\instr\bltz.h" />
     <ClInclude Include="include\instr\bne.h" />
     <ClInclude Include="include\instr\instr.h" />
     <ClInclude Include="include\instr\inv.h" />

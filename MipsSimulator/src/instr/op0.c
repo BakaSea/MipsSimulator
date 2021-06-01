@@ -5,6 +5,10 @@
 #include "../../include/instr/syscall.h"
 #include <assert.h>
 
+extern uint32_t pc;
+extern uint32_t hi;
+extern uint32_t lo;
+
 make_instr_func(op0) {
 	uint32_t rs_val = get_rs_val(instr, 4);
 	uint32_t rt_val = get_rt_val(instr, 4);
